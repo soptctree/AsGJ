@@ -8,6 +8,7 @@ import os
 # --- CONFIGURACIÓN DE IDENTIDAD ---
 NUMERO_NEGOCIO = "50581269278" 
 COLOR_ACENTO = "#d32f2f"
+CLAVE_SECRETA = 210825
 
 st.set_page_config(page_title="Asados García Jiménez - Ometepe", page_icon="🔥", layout="centered")
 
@@ -138,21 +139,29 @@ if subtotal > 0:
 
     if enviar:
         if nombre and celular and direccion:
-            # Guardamos los datos en la sesión para que no se pierdan si se refresca
+            # 1. Calculamos la Firma Digital antes de armar el mensaje
+            # Sumamos tu clave (la fecha de Cloe Sofia) y multiplicamos por 2
+            hash_verificacion = (total_final + CLAVE_SECRETA) * 2
+            
+            # 2. Generamos el ID único del pedido
+            order_id = f"AGJ-{str(uuid.uuid4())[:4].upper()}"
+
+            # 3. Guardamos todo en la sesión
             st.session_state.pedido_listo = True
             st.session_state.msg_whatsapp = (
-                f"🔥 *PEDIDO OMETEPE: {f'AGJ-{str(uuid.uuid4())[:4].upper()}'}*\n"
+                f"🔥 *PEDIDO OMETEPE: {order_id}*\n"
                 f"━━━━━━━━━━━━━━━━━━\n"
                 f"👤 *Cliente:* {nombre}\n"
                 f"📞 *Tel:* {celular}\n"
                 f"📍 *Zona:* {zona}\n"
-                f"🏠 *Dirección:* {direccion}\n\n" # Asegúrate de incluir la variable direccion aquí
+                f"🏠 *Dirección:* {direccion}\n\n"
                 f"🍱 *DETALLE:*\n{chr(10).join(carrito)}\n\n"
                 f"💬 *NOTAS:* {notas if notas else 'Ninguna'}\n"
                 f"━━━━━━━━━━━━━━━━━━\n"
                 f"💰 *SUBTOTAL:* C$ {subtotal}\n"
                 f"🛵 *DELIVERY:* C$ {costo_delivery}\n"
-                f"💵 *TOTAL:* C$ {total_final}"
+                f"💵 *TOTAL:* C$ {total_final}\n"
+                f"🔐 *FIRMA DIGITAL:* {hash_verificacion}" # <--- ¡AQUÍ QUEDA PROTEGIDO!
             )
         else:
             st.error("⚠️ Por favor, completa Nombre, Celular y Dirección.")
