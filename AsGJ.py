@@ -100,9 +100,12 @@ for o in otros:
         st.markdown(f"**{o['n']}**")
         st.markdown(f"<span class='price-tag'>C$ {o['p']}</span>", unsafe_allow_html=True)
         cant_o = st.number_input("Cantidad:", min_value=0, step=1, key=f"co_{o['n']}")
+        
         if cant_o > 0:
-            carrito.append(f"{cant_o}x {o['n']}")
-            subtotal += (o['p'] * cant_o)
+            # --- CAMBIO AQUÍ: Detallamos el precio en el carrito ---
+            item_total_otro = o['p'] * cant_o
+            carrito.append(f"{cant_o}x {o['n']} (C$ {o['p']} c/u = C$ {item_total_otro})")
+            subtotal += item_total_otro
     st.divider()
 
 # --- GESTIÓN DE DELIVERY ---
