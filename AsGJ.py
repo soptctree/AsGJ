@@ -150,7 +150,17 @@ if subtotal > 0:
                 f"💵 *TOTAL:* C$ {total_final}"
             )
             
+            # --- MEJORA VISUAL ---
             st.balloons()
-            st.success(f"¡Pedido {order_id} listo!")
+            st.success(f"✅ ¡Pedido {order_id} generado con éxito!")
+            
             link = f"https://api.whatsapp.com/send?phone={NUMERO_NEGOCIO}&text={urllib.parse.quote(msg)}"
-            st.link_button("📲 Abrir WhatsApp y Confirmar", link)
+            
+            # Usamos una columna para centrar el botón de acción
+            st.link_button("📲 ENVIAR AHORA POR WHATSAPP", link, use_container_width=True, type="primary")
+            
+            # Agregamos un botón para resetear la página después del envío
+            if st.button("🔄 Hacer otro pedido / Limpiar datos"):
+                st.rerun()
+        else:
+            st.error("⚠️ Por favor, completa Nombre, Celular y Dirección para procesar tu pedido.")
