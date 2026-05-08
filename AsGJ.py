@@ -6,7 +6,7 @@ import uuid
 import os
 
 # --- CONFIGURACIÓN DE IDENTIDAD ---
-NUMERO_NEGOCIO = "50558222234" 
+NUMERO_NEGOCIO = "50581269278" 
 COLOR_ACENTO = "#d32f2f"
 
 st.set_page_config(page_title="Asados García Jiménez - Ometepe", page_icon="🔥", layout="centered")
