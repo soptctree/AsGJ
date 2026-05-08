@@ -134,7 +134,7 @@ if subtotal > 0:
         celular = st.text_input("Número Celular")
         direccion = st.text_area("Dirección / Referencia exacta")
         notas = st.text_area("Notas (Ej: Chile aparte, sin ensalada)")
-        enviar = st.form_submit_button("🚀 ENVIAR PEDIDO POR WHATSAPP")
+        enviar = st.form_submit_button("🚀 GENERAR RESUMEN")
 
     if enviar:
         if nombre and celular and direccion:
@@ -160,10 +160,10 @@ if subtotal > 0:
     # Mostramos el botón de WhatsApp FUERA del bloque 'if enviar' si ya está listo
     if "pedido_listo" in st.session_state:
         st.balloons()
-        st.success("✅ ¡Resumen generado! Si editaste algo, vuelve a presionar 'ENVIAR PEDIDO' arriba.")
+        st.success("✅ ¡Resumen generado! Si editaste algo, vuelve a presionar 'ENVIAR PEDIDO' arriba Y CONTINUA CON EL BOTON DE ABAJO.")
         
         link = f"https://api.whatsapp.com/send?phone={NUMERO_NEGOCIO}&text={urllib.parse.quote(st.session_state.msg_whatsapp)}"
-        st.link_button("📲 ENVIAR AHORA POR WHATSAPP", link, use_container_width=True, type="primary")
+        st.link_button("📲 CONFIRMAR Y ENVIAR POR WHATSAPP", link, use_container_width=True, type="primary")
         
         if st.button("🔄 Nuevo Pedido (Limpiar todo)"):
             for key in st.session_state.keys():
