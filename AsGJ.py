@@ -138,13 +138,15 @@ if subtotal > 0:
 
     if enviar:
         if nombre and celular and direccion:
-            order_id = f"AGJ-{str(uuid.uuid4())[:4].upper()}"
-            msg = (
-                f"🔥 *PEDIDO OMETEPE: {order_id}*\n"
+            # Guardamos los datos en la sesión para que no se pierdan si se refresca
+            st.session_state.pedido_listo = True
+            st.session_state.msg_whatsapp = (
+                f"🔥 *PEDIDO OMETEPE: {f'AGJ-{str(uuid.uuid4())[:4].upper()}'}*\n"
                 f"━━━━━━━━━━━━━━━━━━\n"
                 f"👤 *Cliente:* {nombre}\n"
                 f"📞 *Tel:* {celular}\n"
-                f"📍 *Zona:* {zona}\n\n"
+                f"📍 *Zona:* {zona}\n"
+                f"🏠 *Dirección:* {direccion}\n\n" # Asegúrate de incluir la variable direccion aquí
                 f"🍱 *DETALLE:*\n{chr(10).join(carrito)}\n\n"
                 f"💬 *NOTAS:* {notas if notas else 'Ninguna'}\n"
                 f"━━━━━━━━━━━━━━━━━━\n"
@@ -152,18 +154,18 @@ if subtotal > 0:
                 f"🛵 *DELIVERY:* C$ {costo_delivery}\n"
                 f"💵 *TOTAL:* C$ {total_final}"
             )
-            
-            # --- MEJORA VISUAL ---
-            st.balloons()
-            st.success(f"✅ ¡Pedido {order_id} generado con éxito!")
-            
-            link = f"https://api.whatsapp.com/send?phone={NUMERO_NEGOCIO}&text={urllib.parse.quote(msg)}"
-            
-            # Usamos una columna para centrar el botón de acción
-            st.link_button("📲 ENVIAR AHORA POR WHATSAPP", link, use_container_width=True, type="primary")
-            
-            # Agregamos un botón para resetear la página después del envío
-            if st.button("🔄 Hacer otro pedido / Limpiar datos"):
-                st.rerun()
         else:
-            st.error("⚠️ Por favor, completa Nombre, Celular y Dirección para procesar tu pedido.")
+            st.error("⚠️ Por favor, completa Nombre, Celular y Dirección.")
+
+    # Mostramos el botón de WhatsApp FUERA del bloque 'if enviar' si ya está listo
+    if "pedido_listo" in st.session_state:
+        st.balloons()
+        st.success("✅ ¡Resumen generado! Si editaste algo, vuelve a presionar 'ENVIAR PEDIDO' arriba.")
+        
+        link = f"https://api.whatsapp.com/send?phone={NUMERO_NEGOCIO}&text={urllib.parse.quote(st.session_state.msg_whatsapp)}"
+        st.link_button("📲 ENVIAR AHORA POR WHATSAPP", link, use_container_width=True, type="primary")
+        
+        if st.button("🔄 Nuevo Pedido (Limpiar todo)"):
+            for key in st.session_state.keys():
+                del st.session_state[key]
+            st.rerun()
