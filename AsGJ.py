@@ -161,7 +161,7 @@ if subtotal > 0:
                 f"💰 *SUBTOTAL:* C$ {subtotal}\n"
                 f"🛵 *DELIVERY:* C$ {costo_delivery}\n"
                 f"💵 *TOTAL:* C$ {total_final}\n"
-                f"🔐 *FIRMA DIGITAL:* {hash_verificacion}" # <--- ¡AQUÍ QUEDA PROTEGIDO!
+                f"🔐 *FNUM COMANDA:* {hash_verificacion}" # <--- ¡AQUÍ QUEDA PROTEGIDO!
             )
         else:
             st.error("⚠️ Por favor, completa Nombre, Celular y Dirección.")
