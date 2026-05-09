@@ -33,6 +33,14 @@ col_l1, col_l2, col_l3 = st.columns([1, 3, 1])
 with col_l2:
     if os.path.exists("asado.jpeg"):
         st.image("asado.jpeg", use_container_width=True)
+    st.markdown("""
+    <div style='text-align: center; background-color: #f0f2f6; padding: 10px; border-radius: 10px; border: 1px solid #d32f2f;'>
+        <h4 style='margin: 0; color: #d32f2f;'>⏰ Horario de Atención</h4>
+        <p style='margin: 0; color: #31333F;'><b>Lunes a Domingo:</b> 3:00 PM - 8:00 PM</p>
+        <p style='font-size: 0.8rem; margin: 0; color: #555;'>📍 Isla de Ometepe,El Madroñal</p>
+    </div>
+    <br>
+""", unsafe_allow_html=True)
     st.markdown(f"<h2 style='text-align: center; color: {COLOR_ACENTO}; margin-top:-20px;'>Asados García Jiménez</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; font-style: italic;'>🔥 El auténtico sabor de la Isla de Ometepe</p>", unsafe_allow_html=True)
 
