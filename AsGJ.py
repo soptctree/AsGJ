@@ -114,7 +114,7 @@ costo_delivery = 0
 if subtotal > 0:
     st.markdown("<div class='category-header'>🛵 ENTREGA A DOMICILIO</div>", unsafe_allow_html=True)
     zona = st.selectbox("Seleccione su ubicación:", 
-                        ["Santa Cruz (Gratis)", "Madroñal (Gratis)", "Balgüe (Gratis)", "Otras zonas de Ometepe (C$ 50)"])
+                        ["Santa Cruz (Gratis)", "Madroñal (Gratis)", "Balgüe (Gratis)", "Otras zonas de Ometepe (No disponible Aun)"])
     
     if "Otras zonas" in zona:
         costo_delivery = 50
