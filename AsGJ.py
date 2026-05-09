@@ -83,7 +83,7 @@ for a in asados:
     st.divider()
 
 # --- SECCIÓN DE OTROS Y FRESCOS ---
-st.markdown("<div class='category-header'>🌮 ANTOJITOS Y FRESCOS</div>", unsafe_allow_html=True)
+st.markdown("<div class='category-header'>🌮 ANTOJITOS </div>", unsafe_allow_html=True)
 otros = [
     {"n": "Tacos Crujientes", "p": 70, "img": "taco.jpeg"},
     {"n": "Arroz Especial", "p": 130, "img": "arroz.jpeg"},
