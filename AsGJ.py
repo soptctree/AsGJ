@@ -63,7 +63,7 @@ asados = [
     {"n": "Servicio de Res", "img": "res.jpeg"},
     {"n": "Servicio de Pollo", "img": "pollo.jpeg"},
     {"n": "Servicio de Cerdo", "img": "cerdo.jpeg"},
-    {"n": "Servicio Mixto,Gallopinto", "img": "mixto.jpeg"}
+    {"n": "Servicio Mixto", "img": "mixto.jpeg"}
 ]
 
 for a in asados:
@@ -85,11 +85,11 @@ for a in asados:
 # --- SECCIÓN DE OTROS Y FRESCOS ---
 st.markdown("<div class='category-header'>🌮 ANTOJITOS Y FRESCOS</div>", unsafe_allow_html=True)
 otros = [
-    {"n": "Tacos Crujientes", "p": 100, "img": "taco.jpeg"},
-    {"n": "Arroz Especial", "p": 120, "img": "arroz.jpeg"},
-    {"n": "combo papas y alitas", "p": 120, "img": "alitas.jpeg"},
-    {"n": "Melon", "p": 35, "img": "melon.jpeg"},
-    {"n": "Especial", "p": 30, "img": "especial.jpeg"}
+    {"n": "Tacos Crujientes", "p": 70, "img": "taco.jpeg"},
+    {"n": "Arroz Especial", "p": 130, "img": "arroz.jpeg"},
+    {"n": "combo papas y alitas", "p": 80, "img": "alitas.jpeg"},
+    #{"n": "Melon", "p": 35, "img": "melon.jpeg"},
+    #{"n": "Especial", "p": 30, "img": "especial.jpeg"}
 ]
 
 for o in otros:
