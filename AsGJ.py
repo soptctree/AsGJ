@@ -73,7 +73,7 @@ for a in asados:
             st.image(a["img"], use_container_width=True)
     with col_info:
         st.markdown(f"**{a['n']}**")
-        precio_elegido = st.radio(f"Tamaño para {a['n']}:", [80, 100, 120], horizontal=True, key=f"p_{a['n']}")
+        precio_elegido = st.radio(f"Tamaño para {a['n']}:", [80, 100,], horizontal=True, key=f"p_{a['n']}")
         cant = st.number_input("Cantidad:", min_value=0, step=1, key=f"c_{a['n']}")
         
         if cant > 0:
