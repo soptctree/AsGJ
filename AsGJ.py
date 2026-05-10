@@ -62,7 +62,7 @@ if es_dia_de_sopa:
         cant_s = st.number_input("Cantidad Sopa:", min_value=0, step=1, key="sopa_input")
         if cant_s > 0:
             carrito.append(f"{cant_s}x Sopa de Res/Pollo")
-            subtotal += (1100 * cant_s)
+            subtotal += (110 * cant_s)
     st.divider()
 
 # --- SECCIÓN DE ASADOS (CON PRECIOS VARIABLES) ---
