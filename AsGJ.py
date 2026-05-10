@@ -56,12 +56,13 @@ if es_dia_de_sopa:
         # Si tienes foto de sopa, cámbiala por sopa.jpeg
         st.image("sopa.jpeg", use_container_width=True) 
     with col_info:
-        st.markdown("**Sopa de Res / Pollo**")
-        st.markdown("<span class='price-tag'>C$ 180</span>", unsafe_allow_html=True)
+        st.markdown("**Disponible desde 10:00 am /**")
+        st.markdown("**Sopa de Res /**")
+        st.markdown("<span class='price-tag'>C$ 110</span>", unsafe_allow_html=True)
         cant_s = st.number_input("Cantidad Sopa:", min_value=0, step=1, key="sopa_input")
         if cant_s > 0:
             carrito.append(f"{cant_s}x Sopa de Res/Pollo")
-            subtotal += (180 * cant_s)
+            subtotal += (1100 * cant_s)
     st.divider()
 
 # --- SECCIÓN DE ASADOS (CON PRECIOS VARIABLES) ---
