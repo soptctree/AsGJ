@@ -77,10 +77,10 @@ if es_dia_de_sopa:
 st.markdown("<div class='category-header'>🥩 ASADOS (Elegir tamaño)</div>", unsafe_allow_html=True)
 
 asados = [
-    {"n": "Servicio de Res", "img": "res.jpeg"},
+    #{"n": "Servicio de Res", "img": "res.jpeg"},
     {"n": "Servicio de Pollo", "img": "pollo.jpeg"},
     {"n": "Servicio de Cerdo", "img": "cerdo.jpeg"},
-    {"n": "Servicio Mixto", "img": "mixto.jpeg"}
+    #{"n": "Servicio Mixto", "img": "mixto.jpeg"}
 ]
 
 for a in asados:
@@ -104,8 +104,10 @@ st.markdown("<div class='category-header'>🌮 ANTOJITOS </div>", unsafe_allow_h
 otros = [
     {"n": "Tacos Crujientes", "p": 70, "img": "taco.jpeg"},
     {"n": "Arroz Negro", "p": 80, "img": "arros.jpeg"},
-    {"n": "Arroz Especial", "p": 130, "img": "arroz.jpeg"},
-    {"n": "combo papas y alitas", "p": 80, "img": "alitas.jpeg"},
+    {"n": "Arroz Negro Papa/pollo", "p": 130, "img": "arroz.jpeg"},
+    {"n": "combo papas y alitas", "p": 90, "img": "alitas.jpeg"},
+    {"n": "Extra Gallopinto", "p": 30, "img": "gallo.jpeg"},
+    {"n": "Extra De Papa", "p": 90, "img": "pap.jpeg"},
     #{"n": "Melon", "p": 35, "img": "melon.jpeg"},
     #{"n": "Especial", "p": 30, "img": "especial.jpeg"}
 ]
