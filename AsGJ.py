@@ -58,7 +58,7 @@ if es_dia_de_sopa:
             st.image("sopa.jpeg", use_container_width=True) 
             
     with col_info:
-        st.markdown("**Disponible desde 10:00 am**")
+        st.markdown("**Disponible desde 10:00 am-Hasta medioDia**")
         st.markdown("**Sopa de Res**")
         st.markdown("<span class='price-tag'>C$ 110</span>", unsafe_allow_html=True)
         
@@ -107,7 +107,7 @@ otros = [
     {"n": "Arroz Negro Papa/pollo", "p": 130, "img": "arroz.jpeg"},
     {"n": "combo papas y alitas", "p": 90, "img": "alitas.jpeg"},
     {"n": "Extra Gallopinto", "p": 30, "img": "gallo.jpeg"},
-    {"n": "Extra De Papa", "p": 90, "img": "pap.jpeg"},
+    {"n": "Extra De Papa", "p": 30, "img": "pap.jpeg"},
     #{"n": "Melon", "p": 35, "img": "melon.jpeg"},
     #{"n": "Especial", "p": 30, "img": "especial.jpeg"}
 ]
