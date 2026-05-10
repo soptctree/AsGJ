@@ -52,17 +52,25 @@ subtotal = 0
 if es_dia_de_sopa:
     st.markdown("<div class='category-header'>🍲 SOPAS ESPECIALES (Hoy disponible)</div>", unsafe_allow_html=True)
     col_img, col_info = st.columns([1, 2])
+    
     with col_img:
-        # Si tienes foto de sopa, cámbiala por sopa.jpeg
-        st.image("sopa.jpeg", use_container_width=True) 
+        if os.path.exists("sopa.jpeg"):
+            st.image("sopa.jpeg", use_container_width=True) 
+            
     with col_info:
-        st.markdown("**Disponible desde 10:00 am /**")
-        st.markdown("**Sopa de Res /**")
+        st.markdown("**Disponible desde 10:00 am**")
+        st.markdown("**Sopa de Res**")
         st.markdown("<span class='price-tag'>C$ 110</span>", unsafe_allow_html=True)
-        cant_s = st.number_input("Cantidad Sopa:", min_value=0, step=1, key="sopa_input")
-        if cant_s > 0:
-            carrito.append(f"{cant_s}x Sopa de Res/Pollo")
-            subtotal += (110 * cant_s)
+        
+        # Usamos un nombre de variable único para la cantidad
+        cant_sopa = st.number_input("Cantidad Sopa:", min_value=0, step=1, key="input_sopa_hoy")
+        
+        # IMPORTANTE: Solo sumar si la cantidad es mayor a cero
+        if cant_sopa > 0:
+            precio_sopa = 110
+            total_sopa = precio_sopa * cant_sopa
+            carrito.append(f"{cant_sopa}x Sopa de Res (C$ {precio_sopa} c/u)")
+            subtotal += total_sopa # Aquí ya no te sumará nada si cant_sopa es 0
     st.divider()
 
 # --- SECCIÓN DE ASADOS (CON PRECIOS VARIABLES) ---
