@@ -103,6 +103,7 @@ for a in asados:
 st.markdown("<div class='category-header'>🌮 ANTOJITOS </div>", unsafe_allow_html=True)
 otros = [
     {"n": "Tacos Crujientes", "p": 70, "img": "taco.jpeg"},
+    {"n": "Arroz Negro", "p": 80, "img": "arros.jpeg"},
     {"n": "Arroz Especial", "p": 130, "img": "arroz.jpeg"},
     {"n": "combo papas y alitas", "p": 80, "img": "alitas.jpeg"},
     #{"n": "Melon", "p": 35, "img": "melon.jpeg"},
