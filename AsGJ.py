@@ -139,13 +139,19 @@ if subtotal > 0:
     total_final = subtotal + costo_delivery
 
     st.markdown(f"""
-        <div style='background-color: #fff; padding: 15px; border-radius: 10px; border: 1px solid #ddd;'>
-            <h4>Resumen de Cuenta:</h4>
-            <p>Subtotal: C$ {subtotal}</p>
-            <p>Delivery: C$ {costo_delivery}</p>
-            <h3 style='color: {COLOR_ACENTO};'>TOTAL: C$ {total_final}</h3>
-        </div>
-    """, unsafe_allow_html=True)
+            <div style='background-color: #fff; padding: 15px; border-radius: 10px; border: 1px solid #ddd;'>
+                <h4 style='margin-top: 0;'>Resumen de Cuenta:</h4>
+                <div style='background-color: #f9f9f9; padding: 10px; border-radius: 5px; margin-bottom: 10px;'>
+                    <p style='margin: 0; font-weight: bold; color: #555;'>Productos seleccionados:</p>
+                    <ul style='margin: 5px 0; padding-left: 20px;'>
+                        {"".join([f"<li>{item}</li>" for item in carrito])}
+                    </ul>
+                </div>
+                <p style='margin: 5px 0;'>Subtotal: C$ {subtotal}</p>
+                <p style='margin: 5px 0;'>Delivery: C$ {costo_delivery}</p>
+                <h3 style='color: {COLOR_ACENTO}; margin: 10px 0 0 0;'>TOTAL: C$ {total_final}</h3>
+            </div>
+        """, unsafe_allow_html=True)
 
     with st.form("comanda_final"):
         nombre = st.text_input("Nombre Completo")
