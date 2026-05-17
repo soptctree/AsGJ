@@ -108,6 +108,7 @@ otros = [
     {"n": "combo papas y alitas", "p": 90, "img": "alitas.jpeg"},
     {"n": "Extra Gallopinto", "p": 30, "img": "gallo.jpeg"},
     {"n": "Extra De Papa", "p": 30, "img": "pap.jpeg"},
+    {"n": "Bandeja Especial", "p": 000, "img": "bandeja.jpeg"},
     #{"n": "Melon", "p": 35, "img": "melon.jpeg"},
     #{"n": "Especial", "p": 30, "img": "especial.jpeg"}
 ]
