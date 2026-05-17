@@ -26,7 +26,7 @@ st.markdown(f"""
 
 # --- LÓGICA DE DÍA PARA SOPAS ---
 dia_semana = datetime.now().weekday() 
-es_dia_de_sopa = False #dia_semana in [0, 6] # 0=Lunes, 6=Domingo#
+es_dia_de_sopa = dia_semana in [0, 6] # 0=Lunes, 6=Domingo#
 
 # --- CABECERA ---
 col_l1, col_l2, col_l3 = st.columns([1, 3, 1])
